@@ -126,7 +126,7 @@ Some examples:
 #include <iostream>
 using namespace std;
 
-void main()
+int main()
 {
     int i;
 
@@ -146,6 +146,8 @@ void main()
 
     if ( 1 )
         cout << "1 is true!" << endl;
+
+    return 0;
 }
 ```
 
@@ -161,7 +163,7 @@ C++ provides three loop structures __while__, __for__, and __do ... while__.
 #include <iostream>
 using namespace std;
 
-void main()
+int main()
 {
     // print the numbers from 0 to 9
     for ( int i = 0; i < 10; i++ )
@@ -175,6 +177,8 @@ void main()
         cout << i << endl;
         i = i + 1;
     }
+
+    return 0;
 }
 ```
 
