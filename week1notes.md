@@ -42,7 +42,7 @@ Some C++ primitive types
 ```c++
 #include <iostream>
 
-void main()
+int main()
 {
     // a floating point variable
     float x;
@@ -51,6 +51,8 @@ void main()
     // use >> on std::cin to get input from console
     std::cin >> x; 
     std::cout << "the number squared is " << x*x << std::endl;
+
+    return 0;
 }
 ```
 
@@ -70,12 +72,14 @@ dispense with the __std::__ on each use of the names by adding __using namespace
 
 using namespace std;
 
-void main()
+int main()
 {
     string name;
     cout << "enter your name ";
     cin >> name;
     cout << "hello, " << name << endl;
+
+    return 0;
 }
 ```
 
