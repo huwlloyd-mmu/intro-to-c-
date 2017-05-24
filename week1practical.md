@@ -77,7 +77,8 @@ mt19937 randGen;
 
 int main()
 {
-   unsigned int seed = 12345; // usinga different seed will give a different sequence
+   unsigned int seed = 12345; 
+// using a different seed will give a different sequence
    randGen = mt19937(seed);
    
    cout << "a random number: " << randGen() << endl;
@@ -113,6 +114,7 @@ We will now calculate pi using the _Monte Carlo_ method. The technique works as 
 It's more convenient to use a semicircle: see diagram below (from mathfaculty.fullerton.edu)
 
 ![Monte Carlo Geometry](MonteCarloPiMod_gr_41.gif)
+
 The number of red dots divided by the number of red and green dots should be one quarter of pi.
 
 Here's the algorithm:
