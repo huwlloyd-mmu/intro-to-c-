@@ -7,15 +7,16 @@
 // comments start with a double slash, preprocessor commands start with a #
 #include <iostream> 
 
-void main() // main is the entry point to a C++ program
+int main() // main is the entry point to a C++ program
 {
     /* multi-line comment ...
 	   print to console */   
     std::cout << "hello, world" << std::endl;  
+    return 0;
 }
 ```
 * The braces (curly brackets) define a __code block__: in this case the __main__ function.
-* __main__ returns nothing (void) here: it can return an __int__ instead (which is passed to the OS).
+* __main__ returns an __int__ (which is passed to the OS) -- 0 means 'success'.
 * The __preprocessor__ runs before the compiler and executes commands starting with a __#__. In the case above, the preprocessor includes a _header_ file.
 * The __iostream__ header includes the definition of __std::cout__. Output to the console by sending strings or values to __std::cout__ using the __<<__ operator.
 * __std::endl__ is a newline. You could use "\n" instead.
@@ -31,7 +32,7 @@ Some C++ primitive types
 | __char__    | character, 8 bit integer       |
 | __int__     | 32 bit signed integer          |
 | __unsigned int__ | 32 bit unsigned integer (+ve only) |
-| __		 long long int__ | 64 bit signed integer  |
+| __long long int__ | 64 bit signed integer  |
 | __float__   | 32-bit floating point number   |
 | __double__  | 64-bit floating point number   |
 | __bool__    | boolean - __true__ or __false__|
@@ -90,7 +91,7 @@ We can convert between types using typecasts - the cast operator is the name of 
    cout << ix << endl; 	// outputs '1'
 ```
 
-C++ will perform _inplicit conversion_ without a cast where possible, eveen where information is loat, so be careful. Most compilers give warnings when this happens.
+C++ will perform _implicit conversion_ without a cast where possible, even where information is lost, so be careful. Most compilers give warnings when this happens.
 
 ## 3. Conditionals
 
@@ -110,7 +111,7 @@ the __bool__ type to be evaluated as true or false in a conditional statement.
 | __>=__     | Greater than or equals |
 | __<=__     | Less than or equals |
 | __!__      | logical NOT  |
-| __\|\|__     | logical OR   |
+ __\|\|__     | logical OR   |
 | __&&__     | logical AND  |
 
 Some examples:
@@ -159,15 +160,15 @@ using namespace std;
 void main()
 {
     // print the numbers from 0 to 9
-	for ( int i = 0; i < 10; i++ )
+    for ( int i = 0; i < 10; i++ )
     {
         cout << i << endl;
     }
     // do the same with a while loop
     int i = 0;
-	while ( i < 10 )
+    while ( i < 10 )
     {
-	    cout << i << endl;
+        cout << i << endl;
         i = i + 1;
     }
 }
@@ -191,17 +192,17 @@ A function is defined by
 // function
 float Square( float x )
 {
-	// returns the square of a floating point number
-	return x*x;
+    // returns the square of a floating point number
+    return x*x;
 }
 
 // procedure
 void SayHello(std::string name )
 {
-	std::cout << "hello, " << name << std::endl;
+    std::cout << "hello, " << name << std::endl;
 }
 ```
-In C++ (unlike, say, Java or C#) a function has to be declared before it can be used so the compiler will give an error if function definition is after the call in the source file. This could be a problem - often functions need to call _each other_ (e.g. function A calls functtion B, which calls function A). C++ gets around this using _function prototypes_: these _declare_ a funciton (give its name, return type and arguments) but the _definition_ of the function (the code itself) can be elsewhere. An example:
+In C++ (unlike, say, Java or C#) a function has to be declared before it can be used so the compiler will give an error if function definition is after the call in the source file. This could be a problem - often functions need to call _each other_ (e.g. function A calls function B, which calls function A). C++ gets around this using _function prototypes_: these _declare_ a funciton (give its name, return type and arguments) but the _definition_ of the function (the code itself) can be elsewhere. An example:
 
 ```c++
 // function prototype (declaration)
@@ -209,16 +210,21 @@ void func1( void );
 
 void func2( void )
 {
-	// call func1
-	func1();
+    // call func1
+    func1();
 }
 
 // definition 
 void func1( void )
 {
-	std::cout << "foo" << std::endl;
+    std::cout << "foo" << std::endl;
 }
 ```
 
 This is one way in which C++ manages __libraries__ of code. The function prototypes are usually gathered together into a __header file__, with the function definitions in a separate __.cpp__ file. 
+
+
+### Overloading
+
+In C++ functions can be 'overloaded', that is we can have two (or more) functions with the same name, but different argument lists. Overloaded functions can return different types, with the restriction that the return type can't be the only difference between the functions.
 
