@@ -109,9 +109,9 @@ Make sure you are careful to cast integers to doubles in the Random function.
 
 ## 6. Exercise 4: The Pi Calulation
 
-We will now calculate pi using the _Monte Carlo_ method. The technique works as follows. Imagine you were throwing darts at a circular dartboard, with a square surround which just enclosed the circle, and that you are not very good at darts. The darts will land randomly. The probability of a dart that lands inside the square also landing inside the circle is equal to the ratio of the areas of the circle and the square. This ratio is pi / 4. So, if we count the number of darts that land in the circle, and divide by the number of darts that hit the square, we have an estimate of the probability, and hence of pi.
+We will now calculate pi using the _Monte Carlo_ method. The technique works as follows. Imagine you were throwing darts at a circular dartboard, with a square surround which just enclosed the circle, and that you are not very good at darts. The darts will land randomly. The probability of a dart that lands inside the square also hitting the inside the circle is equal to the ratio of the areas of the circle and the square. This ratio is pi / 4. So, if we count the number of darts that land in the circle, and divide by the number of darts that hit the square, we have an estimate of the probability, and hence of pi.
 
-It's more convenient to use a semicircle: see diagram below (from mathfaculty.fullerton.edu)
+It's more convenient when wriing the code to use a quarter circle: see diagram below (from mathfaculty.fullerton.edu)
 
 ![Monte Carlo Geometry](MonteCarloPiMod_gr_41.gif)
 
