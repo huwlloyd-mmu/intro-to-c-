@@ -89,7 +89,7 @@ int main()
 We can convert between types using typecasts - the cast operator is the name of the desination type in parentheses
 
 ```c++
-   float x = 1.2f       // note the 'f' in a floating point constant
+   float x = 1.2f;       // note the 'f' in a floating point constant
    int ix = (int)x;     // cast to an integer - loses the fractional part
 
    cout << ix << endl; 	// outputs '1'
