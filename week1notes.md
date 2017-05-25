@@ -210,7 +210,7 @@ void SayHello(std::string name )
     std::cout << "hello, " << name << std::endl;
 }
 ```
-In C++ (unlike, say, Java or C#) a function has to be declared before it can be used so the compiler will give an error if function definition is after the call in the source file. This could be a problem - often functions need to call _each other_ (e.g. function A calls function B, which calls function A). C++ gets around this using _function prototypes_: these _declare_ a funciton (give its name, return type and arguments) but the _definition_ of the function (the code itself) can be elsewhere. An example:
+In C++ (unlike, say, Java or C#) a function has to be declared before it can be used so the compiler will give an error if function definition is after the call in the source file. This could be a problem - often functions need to call _each other_ (e.g. function A calls function B, which calls function A). C++ gets around this using _function prototypes_: these _declare_ a function (give its name, return type and arguments) but the _definition_ of the function (the code itself) can be elsewhere. An example:
 
 ```c++
 // function prototype (declaration)
@@ -229,8 +229,8 @@ void func1( void )
 }
 ```
 
-This is one way in which C++ manages __libraries__ of code. The function prototypes are usually gathered together into a __header file__, with the function definitions in a separate __.cpp__ file. 
-
+The function prototypes are often gathered together into a __header file__, with the function definitions in a separate __.cpp__ file. 
+This is one way in which C++ manages __libraries__ of code.
 
 ### Overloading
 
