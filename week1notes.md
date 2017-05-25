@@ -229,8 +229,7 @@ void func1( void )
 }
 ```
 
-The function prototypes are often gathered together into a __header file__, with the function definitions in a separate __.cpp__ file. 
-This is one way in which C++ manages __libraries__ of code.
+The function prototypes are often gathered together into a __header file__, with the function definitions in a separate __.cpp__ file. This is one way in which C++ manages __libraries__ of code.
 
 ### Overloading
 
