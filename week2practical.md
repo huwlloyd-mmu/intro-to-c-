@@ -181,8 +181,7 @@ control your character.
 
 ### Task 5 -- Facing the right way
 
-Now to choose different sprites depending on the last direction of movement. We will first define some constants, and a variable to keep
-track of the current direction.
+Now to choose different sprites depending on the last direction of movement. We will first define some constants, and a variable to keep track of the current direction.
 
 ```c++
 // in the Avatar class definition:
