@@ -81,7 +81,7 @@ int main()
 
 In the example above, the created an instance of __Person__ by calling the constructor, and saving this new instance in a variable of type 'Person'. This is fine, but under the hood there is a lot going on here -- the assignment isn't as simple as it looks and involves termporary objects being created and destroyed, and extra code (copy constructors) being called. There is a more efficient way to construct objects using the __new__ operator.
 
-The new operator is used to call a constructor, and return a __pointer__ to the new object. A pointer is basically an address in memory. Pointers can be a tricky concept, especially when they are used to construct arrays, or manipulate memory directly, but used for referring to class objects they are reasonably straightforward. Here's the example above, rewritten to use pointers.
+The new operator is used to call a constructor, and return a __pointer__ to the new object. A pointer is basically an address in memory. Pointers can be a tricky concept, especially when they are used to construct arrays, or manipulate memory directly, but when used to refer to class objects they are reasonably straightforward. Here's the example above, rewritten to use pointers.
 
 ```c++
 #include "person.h"
@@ -101,17 +101,17 @@ int main()
 ```
 
 * Pointers are declared using the * notation. So, __Person*__ means 'pointer to a Person object'.
-* __new__ is used to call a constructor and return a pointer
+* __new__ is used to call a constructor and return a pointer.
 * We now access the methods and fields using the arrow operator (->) instead of the dot operator.
 * We clean up at the end by using the __delete__ operator on the pointer.
 
 A pointer is an efficient way of referencing an object. Passing a pointer to an object into a function is much better
 than passing in the entire object (a pointer is four or eight bytes, whereas an object can be much bigger depending on 
-the class). There is another, closely related, language feature -- __references__ which we won't be covering today.
+the class). There is another, closely related, language feature -- __references__ -- which we won't be covering today.
 
 ## Destructors
 
-As well as constructors, classes can have __destructors__ -- these are methods that are called when anobject is destroyed (using delete, or if a variable of a class type goes out of scope). A destructor is declared using the name of the class with a tilde (~) before it:
+As well as constructors, classes can have __destructors__ -- these are methods that are called when an object is destroyed (using delete, or if a variable of a class type goes out of scope). A destructor is declared using the name of the class with a tilde (~) before it:
 
 ```c++
 // destructor example - header file
@@ -131,11 +131,11 @@ MyClass::~MyClass()
 }
 ```
 
-You don't have to provide a destructor -- a default one is created for you, but if you have any cleanup yo need to do (such as freeing up memory, closing files etc,) you will need one. 
+You don't have to provide a destructor -- a default one is created for you, but if you have any cleanup you need to do (such as freeing up memory, closing files etc,) you will need one. 
 
 ## Initializer lists
 
-Another piece of syntax we will use is class initilizer lists. This is a way of initializing the class fields in a constructor. There are some advantages to using them over just assigning the variables in the constructor (for example, const member variables and references can only be initialized this way). It's idiomatic to use this syntax, so we will use it. Here's an example, using the person class:
+Another piece of syntax we will use is class initilizer lists. This is a way of initializing the class fields in a constructor. There are some advantages to using them over just assigning the variables in the constructor and in any case it's idiomatic to use this syntax, so we will use it when we can. Here's an example, using the person class:
 
 ```c++
 class Person
@@ -157,10 +157,13 @@ public
 };
 ```
 
+* The initializer list is written after a colon (:) between the constructor signature and the constructor body (curly brackets).
+* The syntax is variable1( initialValue1), variable2(initialValue2) ...
+* Notice in this case the constructor body is empty -- all the initialization happens in the list.
 ## Arrays
 
 We will also use arrays in the code exercises today. We will use fixed length, one-dimensional arrays. These are declared
-and used as follows
+and used as follows:
 
 ```c++
     int numbers[10]; // declare an array of 10 ints

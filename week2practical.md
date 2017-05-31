@@ -2,9 +2,9 @@
 
 ## Using the SFML Library
 
-SFML (Simple, Fast Multimedia Library, [sfml-dev.org](https://www.sfml-dev.org)) is an open source C++ library for 2D graphics and audio. We will use it to start making a game, or part of a game at least. Todays aim's are 
+SFML (Simple, Fast Multimedia Library, [sfml-dev.org](https://www.sfml-dev.org)) is an open source C++ library for 2D graphics and audio. We will use it to start making a game, or part of a game at least. Today's aims are 
 
-* Get an SFML project going in Visual Studio (hopefully easy, I've made a skeleton project)
+* Get an SFML project going in Visual Studio (hopefully easy, I've made a skeleton project).
 * Create a class for a game avatar -- a character for a 2D top-down RPG, using open art assets from opengameart.org.
 * Get the avatar to respond to the WASD keys and walk in the four directions, playing the appropriate walk animations from the sprite sheet.
 
@@ -15,20 +15,19 @@ We'll be using this character sprite sheet from opengameart, by Guarav Munjal ([
 
 ### Task 1. Setting up Visual Studio
 
-* The startup prject, including the SFML library and the texture for the character, is on github. Using git is beyond the scope of this course (but is covered in another of the courses) so we will just download the whole thing.
-
-* Look at the top of this page for the blue "open on github" button. 
-* Clone this tab in your browser so you can see the instructions and the github page at the same time.
-* Click the button to go to the github project.
-* Click on "Clone or download", and choose "download zip archive".
-* When your zip archive is ready, look inside it, find the "week2start" folder, and copy it onto the D: drive.
+* The startup prject, including the SFML library and the texture for the character, is on GitHub. Using git is beyond the scope of this course (but is covered in another of the courses) so we will just download the whole thing.
+* Look at the top of this page for the blue "View on GitHub" button. 
+* Duplicate this tab in your browser so you can see the instructions and the GitHub page at the same time.
+* Click the button to go to the GitHub project.
+* Click on "Clone or Download", and choose "Download Zip Archive".
+* When your zip archive is ready, look inside it, find the "week2start" folder, and copy it onto the __D:__ drive.
 * Find the solution file (week2start.sln), double click it to open in visual studio, build anr run.
 
 If that all worked, you should have a blank window (title "MyGame"). Hit escape to dismiss it.
 
 ### The Game class
 
-The __Game__ class deals with the basic interactions with SFML. You will notice it has three empty functions called __Init__, __Update__ and __Draw__. These are self-explanatory, and are where we will hook into to get all the game behaviour we want. The __Game__ class creates an object of class __sf::RenderWindow__. All SFML classes live in the __sf::__ namespace. __RenderWindow__ is a window that we can draw on. Other classes will need a __pointer__ to this window to be able to send it drawing commands; the __Game__ class provides this through the __GetSFMLWindow__ function.
+The __Game__ class provided in the project deals with the basic interactions with SFML. You will notice it has three empty functions called __Init__, __Update__ and __Draw__. These are self-explanatory, and are where we will hook into to get all the game behaviour we want. The __Game__ class creates an object of class __sf::RenderWindow__. All SFML classes live in the __sf::__ namespace. __RenderWindow__ is a window that we can draw on. Other classes will need a __pointer__ to this window to be able to send it drawing commands; the __Game__ class provides this through the __GetSFMLWindow__ function.
 
 * Have a quick scan of the __Game__ class. It's hopefully fairly self-explanatory.
 
@@ -78,15 +77,20 @@ void Avatar::Draw()
 
 ### Task 3 -- Adding an image
 
-We will now add some functionality to enable the Avatar to enable us to display an image. First of all we need a position for the avatar. Add two __int__ variables to the class, __posX__ and __posY__ to store the x and y coordinates of the player. Initialize these in the constructor so that the player starts in the middle of the screen. Here's the code to add to the constructor (I'll assume you have added the variables to the class in the header file):
+We will now add some functionality to enable the Avatar to enable us to display an image. First of all we need a position for the avatar. Add two __int__ variables to the class, __posX__ and __posY__ to store the x and y coordinates of the player. Initialize these in the constructor so that the player starts in the middle of the screen. Here's the code to add to the class definition and constructor (I'll assume you have added the variables to the class definition in the header file):
 
 ```c++
+   // inside class definition, in Avatar.h
+   int posX;
+   int posY;
+
+   // in the Avatar constructor (c++ file)
    posX = parent->GetSFMLWindow()->getSize().x / 2;
    posY = parent->GetSFMLWindow()->getSize().y / 2;
 ```
-We get a pointer to the window, from the game, then use that pointer to call __getSize()__. This returns an SFML vector object with x and y components representing width and height of the window.
+This code gets a pointer to the window, from the game (parent), then uses that pointer to call __getSize()__. This returns an SFML vector object with x and y components representing width and height of the window.
 
-Next we need to load the sprite sheet image into a texture. Add a variable to the __Avatar__ class of type __sf::Texture__, called __spriteSheet__, and hen in the constructor, load the image using this code
+Next we need to load the sprite sheet image into a texture ('texture' is a graphics term for an image that is used to render an object). Add a variable to the __Avatar__ class of type __sf::Texture__, called __spriteSheet__, and then in the constructor, load the image using this code
 
 ```c++
 // in the header file:
@@ -156,7 +160,7 @@ Run the game -- you should see the little guy in the middle of the screen.
 ### Task 4 -- Movement.
 We will now add some code to the Avatar __Update__ function, to interrogate the keyboard, and move the Avatar. 
 We can check which keys are down using the functions in __sf::Keyboard__. You need to do two things -- first add
-a call to the Avatar update funtion in the __Game__ class:
+a call to the Avatar update function in the __Game__ class:
 
 ```c++
 void Game::Update()
@@ -166,7 +170,7 @@ void Game::Update()
 }
 ```
 
-Then modify the Update function in the Avatar class: I will leave you to finish this off:
+Then modify the __Update__ function in the Avatar class: I will leave you to finish this off:
 
 ```c++
 // in the Avatar::Update() function
@@ -204,7 +208,7 @@ Now in the Update function, change the direction whenever input is received, for
    }
 ```
 
-I'll leave you to fill in the rest. Now in the Draw function, we need to choose a different sprite based on the direction. 
+I'll leave you to fill in the other directions. Now in the Draw function, we need to choose a different sprite based on the direction. 
 
 * Add the following code at the beginning of Avatar::Draw:
 
@@ -248,7 +252,7 @@ initialized to zero. Add one to it in the __Avatar::Update__ function so it 'tic
    // repeat for the other directions
 ```
 
-* Third, we need to choose the frame based on time, direciton and whether the player is walking or not. 
+* Third, we need to choose the frame based on time, direction and whether the player is walking or not. 
 
 We will use a simple scheme for this. Notice that the idle frame is in the middle of each row. The walk
 animation involves playing the frames to the left and right of this -- these are offset by -1 and +1 in the
@@ -278,9 +282,12 @@ That's it!
 
 ### Polish
 
-You may want to add some polish. Two things you could do:
+You may want to add some polish. Three things you could do:
 
+* Make it so the player responds to the arrow keys as well as WASD. You can use the intellisense prompts to help find the SFML constants for these keys.
 * Find a background image, and draw it under the player (probably in the Game class, or make a new class called Backgorund).
 * Stop the player from walking off the screen.
+
+Next week we will add some interactions with objects in the world. 
 
 
