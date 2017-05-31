@@ -285,7 +285,7 @@ That's it!
 You may want to add some polish. Three things you could do:
 
 * Make it so the player responds to the arrow keys as well as WASD. You can use the intellisense prompts to help find the SFML constants for these keys.
-* Find a background image, and draw it under the player (probably in the Game class, or make a new class called Backgorund).
+* Find a background image, and draw it under the player (do this in the Game class, or make a new class called Background).
 * Stop the player from walking off the screen.
 
 Next week we will add some interactions with objects in the world. 
