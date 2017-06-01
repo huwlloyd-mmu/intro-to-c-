@@ -97,7 +97,7 @@ Next we need to load the sprite sheet image into a texture ('texture' is a graph
    sf::Texture spriteSheet;
 
 // in the constructor
-   spriteSheet.loadFromFile("Assets/universal-lpc-sprite-male_01_walk_3frame.png");
+   spriteSheet.loadFromFile("Assets/universal-lpc-sprite_male_01_walk-3frame.png");
 ```
 
 We need one more step before we can draw the image. SFML draws 2D images using __sprites__. In SFML, a sprite needs two pieces of information about the image - the texture (we have already dealt with that) and a texture rectangle (the rectangular area of the texture that we want to draw). The texture rectangle is described using an __sf::IntRect__ object. The sprite sheet texture has 12 images on it, so we will create twelve __sf::IntRect__ objects, and store them in an array. Add the following code:
