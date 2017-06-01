@@ -27,7 +27,7 @@ If that all worked, you should have a blank window (title "MyGame"). Hit escape 
 
 ### The Game class
 
-The __Game__ class provided in the project deals with the basic interactions with SFML. You will notice it has three empty functions called __Init__, __Update__ and __Draw__. These are self-explanatory, and are where we will hook into to get all the game behaviour we want. The __Game__ class creates an object of class __sf::RenderWindow__. All SFML classes live in the __sf::__ namespace. __RenderWindow__ is a window that we can draw on. Other classes will need a __pointer__ to this window to be able to send it drawing commands; the __Game__ class provides this through the __GetSFMLWindow__ function.
+The __Game__ class provided in the project deals with the basic interactions with SFML. You will notice it has three empty functions called __Init__, __Update__ and __Display__. These are self-explanatory, and are where we will hook into to get all the game behaviour we want. The __Game__ class creates an object of class __sf::RenderWindow__. All SFML classes live in the __sf::__ namespace. __RenderWindow__ is a window that we can draw on. Other classes will need a __pointer__ to this window to be able to send it drawing commands; the __Game__ class provides this through the __GetSFMLWindow__ function.
 
 * Have a quick scan of the __Game__ class. It's hopefully fairly self-explanatory.
 
@@ -136,7 +136,7 @@ Now to draw a sprite at the position of the avatar. We need to add an avatar obj
 // in the c++ file, in the Init() function
    avatar = new Avatar( this );
 
-// in the c++ file, in the Draw() function
+// in the c++ file, in the Display() function
    avatar->Draw();
 ```
 Notice the use of __this__ in the Avatar constructor call. This is a pointer to the current object. The constructor wants a pointer to a Game object, so we give it __this__ -- "this" instance of Game.
