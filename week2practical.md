@@ -204,7 +204,7 @@ Now in the Update function, change the direction whenever input is received, for
    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
    {
       posX -= 3;
-      direction = DIRECTION_RIGHT;
+      direction = DIRECTION_LEFT;
    }
 ```
 
@@ -214,9 +214,9 @@ I'll leave you to fill in the other directions. Now in the Draw function, we nee
 
 ```c++
    int spriteIndex = 0;
-   if (direction == DIRECTION_LEFT)
+   if (direction == DIRECTION_RIGHT)
       spriteIndex = 4;
-   else if (direction == DIRECTION_RIGHT)
+   else if (direction == DIRECTION_LEFT)
       spriteIndex = 10;
    else if (direction == DIRECTION_UP)
       spriteIndex = 1;
