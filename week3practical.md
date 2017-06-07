@@ -15,24 +15,25 @@ individually. Put all the files into the __Assets__ folder in the Visual Studio 
 ### Assets
 
 This week's asset are from two sources. Firstly, there is a font called __Cave-Story__. This is a retro
-game style font downloaded from fontlibrary.org ([link](fontlibrary.org/en/font/cave-story)).
-Secondly, there are some RPG character teaxtures from opengameart. These were produced by Svetlana Kushnariova (lana-chan@yandex.ru)
-[link](https://opengameart.org/content/24x32-characters-with-faces-big-pack). I took a few of the characters
-from this pack, and replaced the key-colour with transparency.
+game style font downloaded from [fontlibrary](fontlibrary.org/en/font/cave-story).
+Secondly, there are some RPG character teaxtures from [opengameart](https://opengameart.org/content/24x32-characters-with-faces-big-pack). 
+These were produced by Svetlana Kushnariova (lana-chan@yandex.ru). I took a few of the characters from this pack, and replaced the key-colour with transparency.
+There are many more characters in this pack -- enough to make quite a large game.
 
 ![tex1](Townfolk-Adult-F-002.png)![tex2](Townfolk-Adult-M-003.png)![tex1](Townfolk-Adult-F-005.png)![tex2](Townfolk-Adult-M-006.png)
 
-These spritesheets have more on than we will use (walk animations, portraits), and also they are 24x32 so we
+These spritesheets have more images than we will use (they have walk animations and portraits). They are also 24x32 so we
 will need to scale up to match our avatar. We will use them to make some characters who populate the world.
-When the player approaches the characters, they will put a message on the screen.
+When the player approaches the characters, a message will appear next to the player on the screen.
 
 ## Task 2: Loading Assets
 
 There will be a fair amount of setting up code before we get to see anything new this week. First we
-will load the font and textures. We will do this in the __Game__ class. It might make sense at this
-point to take all this into a new class (say, AssetManager) but for this small exercise we'll keep it in
-the Game class. We will add an __sf::Font__ member, and a __map__ for the textures, which we will index
-with strings.
+will load the font and textures. We will do this in the __Game__ class . It might make sense at this
+point to take all this into a new class (say, AssetManager) and you may want to do that if you develop this further, 
+but for now we'll keep it in the Game class (by the way 'for now' is a very common
+comment in game code...). We will add an __sf::Font__ member, and a __map__ for the textures, 
+which we will index with strings.
 
 ```c++
 // add to sfdafx.h (we will need both these today)
