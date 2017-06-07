@@ -34,9 +34,10 @@ void SwapInts( int& a, int& b )
 
 int main()
 {
-   int i1 = 1; i2 = 5;
+   int i1 = 1;
+   int i2 = 5;
    SwapInts( i1, i2 );
-   cout << i1 << " " << i2 << endl; // prints "5 2"
+   cout << i1 << " " << i2 << endl; // prints "5 1"
 }
 ```
 * References are __immutable__. This means we once a reference is assigned to point to something,
@@ -70,6 +71,8 @@ and modifying the array, and a few different ways of traversing the list. Here's
 
 ```c++
 #include <vector>
+#include <iostream>
+#include <string>
 using namespace std;
 
 int main()
@@ -126,6 +129,7 @@ the __key__ and an __integer__ for the value:
 ```c++
 #include <map>
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main()
@@ -165,6 +169,9 @@ out of 'components'. If you use Unity or Unreal, you will see this in action.
 C++ inheritance is via the __public__ keyword.
 
 ```c++
+#include <iostream>
+#include <string>
+
 class Person
 {
     string name;
@@ -197,4 +204,3 @@ int main()
 * The __derived__ class inherits everything from the __parent__ class.
 * __private__ fields in the parent class are hidden from the derived class. Note we access them here through inherited getters.
 * You can call a parent class constructor in the initializer list -- this lets you set the private fields in the parent class.
-
