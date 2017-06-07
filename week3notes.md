@@ -57,7 +57,7 @@ in scope and will be destroyed, leaving a reference to an invalid object.
 ## STL -- the Standard Template Library
 
 C++ is nowadays considered a low-level language. The high-level features built into newer languages are mostly found
-in C++ libraries. However, you can rely on ay feature that is part of the __standard libraries__ 
+in C++ libraries. However, you can rely on any feature that is part of the __standard libraries__ 
 being there, so maybe this is splitting hairs and C++ is high-level after all. C++ __templates__ are a way of
 defining generic classes and functions that work with different types. We will see them in action in two data structures
 provided by the __standard template library__ (STL), __vectors__ and __maps__.
@@ -123,8 +123,8 @@ loop leads to the most readable code. Iterators are necessary if you want to rem
 
 Most high level languages have a __map__ data structure (sometimes called a __hash map__ or __dictionary__). It's an incredibly useful
 and fundamental data structure and you can rely on the implementation in C++ being very efficient. A map is a set of __key-value pairs__.
-An array is a special case of a map in which the keys are all sequential integers. In a map, they can be anything. Here's an example using strings for
-the __key__ and an __integer__ for the value:
+An array is a special case of a map in which the keys are all sequential integers. In a map, they can be anything. Here's an example using __string__ for
+the __key__ and __int__ for the __value__:
 
 ```c++
 #include <map>
@@ -161,7 +161,7 @@ int main()
 We will only briefly mention inheritance, and won't be using it in any of our practical work. This may seem
 odd for a course on an object-oriented language, but I am being selective about which parts of the language
 to look at. In the practical sessions, we have been focusing on game programming.
-In the early days of OOP, games programmers built deep and elaborate inheritance hierarchies and usally got into a mess.
+In the early days of OOP, games programmers built deep and elaborate inheritance hierarchies and usually got into a mess.
 A good principle (first expressed in the 'Gang of Four' book _Design Patterns_) is __Favour Composition over Inheritance__, in other words, make
 new objects by collecting together existing objects, rather than inheriting from them. Most modern games programming embraces this prinicple, building game objects
 out of 'components'. If you use Unity or Unreal, you will see this in action. 
@@ -178,8 +178,9 @@ class Person
     int age;
 public:
     Person( string name, int age ) : name(name), age(age) {}
-	string GetName() {return name;}
-	int GetAge() { return age;}
+    
+    string GetName() {return name;}
+    int GetAge() { return age;}
 };
 
 class Employee : public Person
@@ -187,8 +188,9 @@ class Employee : public Person
     int employeeNumber;
 public:
     Employee( string name, int age, int number ) :
-        Person(name, age), employeeNumber(number) {}
-	int GetEmployeeNumber() { return employeeNumber;}
+           Person(name, age), employeeNumber(number) {}
+
+    int GetEmployeeNumber() { return employeeNumber;}
 };
 
 int main()
@@ -196,7 +198,7 @@ int main()
     Employee emp = Employee("Bob", 26, 12345);
 
     cout << emp.GetName() << " " << emp.GetAge()
-	     << " " << emp.GetEmployeeNumber() << endl;
+         << " " << emp.GetEmployeeNumber() << endl;
     return 0;
 }
 ```
