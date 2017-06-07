@@ -87,7 +87,8 @@ class Character
    string message;
 
 public:
-   Character( Game *parent, sf::Texture& tex, sf::IntRect rect, int px, int py, string message );
+   Character( Game *parent, sf::Texture& tex, sf::IntRect rect, 
+              int px, int py, string message );
    void Update();
    void Draw();
 };
@@ -99,8 +100,10 @@ public:
 #include "Character.h"
 #include "Game.h"
 
-Character::Character(Game *parent, sf::Texture& tex, sf::IntRect rect, int px, int py, string message)
-	: parent(parent), texture(tex), textureRect(rect), posX(px), posY(py), message(message)
+Character::Character(Game *parent, sf::Texture& tex, sf::IntRect rect, 
+                     int px, int py, string message)
+	: parent(parent), texture(tex), textureRect(rect), 
+          posX(px), posY(py), message(message)
 {
 }
 
@@ -134,7 +137,9 @@ Back in the __Game__ class, we will now add a __vector__ to store a list of char
 ```c++
 // in Game.cpp, in the Init function (after the asset loading)
    Character* character;
-   character = new Character(this, textureList["female1"], sf::IntRect(24, 64, 24, 32), 250, 200, string("Hello, my name is Alice\nHow do you do?"));
+   character = new Character(this, textureList["female1"], 
+                 sf::IntRect(24, 64, 24, 32), 250, 200, 
+                 string("Hello, my name is Alice\nHow do you do?"));
    characterList.push_back(character);
 
 // in the Update funxtion
@@ -178,7 +183,7 @@ Now add the following to the __Character__ class.
    int px = parent->GetAvatar()->GetPosX();
    int py = parent->GetAvatar()->GetPosY();
 
-   showMessage = ((px - posX)*(px - posX) + (py - posY)*(py - posY) < 80 * 80);
+   showMessage = ((px - posX)*(px - posX) + (py - posY)*(py - posY) < 80*80);
 ```
 
 This is testing the position of the character against the avatar (using pythagoras to get the squared distance) and if it is less than
@@ -213,5 +218,5 @@ Finally, in the Character class, add:
 	}
 ```
 
-That's it! Test the functionality, and if it works, add some other characters with different textures and different methods.
+That's it! Test the functionality, and if it works, add some other characters with different textures and different messages.
 
