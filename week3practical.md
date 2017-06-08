@@ -15,7 +15,7 @@ individually. Put all the files into the __Assets__ folder in the Visual Studio 
 ### Assets
 
 This week's asset are from two sources. Firstly, there is a font called __Cave-Story__. This is a retro
-game style font downloaded from [fontlibrary](fontlibrary.org/en/font/cave-story).
+game style font downloaded from [fontlibrary](https://fontlibrary.org/en/font/cave-story).
 Secondly, there are some RPG character teaxtures from [opengameart](https://opengameart.org/content/24x32-characters-with-faces-big-pack). 
 These were produced by Svetlana Kushnariova (lana-chan@yandex.ru). I took a few of the characters from this pack, and replaced the key-colour with transparency.
 There are many more characters in this pack -- enough to make quite a large game.
@@ -40,12 +40,14 @@ which we will index with strings.
 #include <map>
 #include <vector>
 
+// before the class definition, in Game.h
+   using namespace std;
+
 // add this to the Game class definition, in Game.h
    sf::Font font;
    map<string, sf::Texture> textureList;
 ```
 
-Note, you may need to add __using namespace std;__ in Game.h. Now, in __Game.cpp__, we will load the textures and font.
 
 ```c++
 // in the Game::Init function
@@ -67,9 +69,11 @@ Note, you may need to add __using namespace std;__ in Game.h. Now, in __Game.cpp
 So, we are loading textures one by one and putting them in the map. Notice we reuse the
 same texture -- this is OK because adding to the map creates a copy in the map.
 
+Check everything builds and still runs -- iron out any erros before proceeding.
+
 ## Task 3: A Character Class
 
-* Add some files to the project: __character.h__ and __character.cpp__.
+* Add two new files to the project: __character.h__ and __character.cpp__.
 * Fill in the skeleton of the class, as below
 
 ```c++
@@ -178,7 +182,7 @@ Now add the following to the __Character__ class.
 
 ```c++
 // in the class definition
-    bool showMessage;
+   bool showMessage;
 
 // in the Update function
    int px = parent->GetAvatar()->GetPosX();
@@ -196,7 +200,7 @@ Finally to display the message.
 
 ```c++
 // in Game.h, in the class definition
-	const sf::Font& GetFont() { return font; }
+   const sf::Font& GetFont() { return font; }
 ```
 
 Notice this is returning a __const__ reference. Why? We dont want this function to be used to change anything. If this was
@@ -207,16 +211,16 @@ Finally, in the Character class, add:
 
 ```c++
 // in the Update function, in character.cpp
-	if (showMessage)
-	{
-		// draw some text
-		sf::Text text;
-		text.setFont(parent->GetFont());
-		text.setPosition(sf::Vector2f(posX, posY));
-		text.setString(sf::String(message));
-		text.setCharacterSize(24);
-		parent->GetSFMLWindow()->draw(text);
-	}
+   if (showMessage)  
+   {
+      // draw some text
+      sf::Text text;
+      text.setFont(parent->GetFont());
+      text.setPosition(sf::Vector2f(posX, posY));
+      text.setString(sf::String(message));
+      text.setCharacterSize(24);
+      parent->GetSFMLWindow()->draw(text);
+   }
 ```
 
 That's it! Test the functionality, and if it works, add some other characters with different textures and different messages.
