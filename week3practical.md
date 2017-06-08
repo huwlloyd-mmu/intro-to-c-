@@ -176,7 +176,7 @@ Continue when you can see the character on screen.
 The first stage is to make the character aware of the player. I will leave you to accomplish the following two steps:
 
 * Add, and implement a function in the __Game__ class called __Avatar *GetAvatar()__ which returns a pointer to the avatar
-* Add two functions to the __Avatar__ class that return the x and y position: __int GetXPos()__ and __int GetYPos()__.
+* Add two functions to the __Avatar__ class that return the x and y position: __int GetPosX()__ and __int GetPosY()__.
 
 Now add the following to the __Character__ class.
 
