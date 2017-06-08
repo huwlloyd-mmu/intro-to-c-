@@ -210,7 +210,7 @@ relying on it staying the same).
 Finally, in the Character class, add:
 
 ```c++
-// in the Update function, in character.cpp
+// in the Draw function, in character.cpp
    if (showMessage)  
    {
       // draw some text
