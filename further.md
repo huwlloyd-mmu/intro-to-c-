@@ -6,7 +6,7 @@ Lynda.com videos: There are some great C++ courses on Lynda, which you get a fre
 
 __Learning C++__ (Peggy Fisher). This is a short (~2.5 hrs) introduction.
 
-__C++ Essential Training__ (Bill Weinmann). This newaly 8-hour long course is a great overview of the language.
+__C++ Essential Training__ (Bill Weinmann). This nearly 8-hour long course is a great overview of the language.
 
 [cplusplus.com](http://www.cplusplus.com) is a good website with good quality tutorials and resources about the language.
 
