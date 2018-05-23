@@ -27,5 +27,5 @@ classroom as a sort of parallel supercomputer (albeit with some communication us
 [Week 3 Notes](week3notes.md) In week 3, we look at references, STL (the standard template library), and inheritance in C++. 
 
 [Week 3 Practical](week3practical.md) In the practical session, we will develop last week's SFML code into the beginnings of a game by adding some interactions with the world.
---->
+-->
 [Here](further.md) is a list of resources you can use to take your C++ programming further.
