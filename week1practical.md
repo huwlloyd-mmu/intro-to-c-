@@ -19,7 +19,7 @@ Once you are set up with your pair programming team, open Visual Studio on one m
 Once Visual Studio is open, follow these steps:
 
 * From the __File__ menu, select __File \> New \> Project__
-* In the dialog that appears, make sure the __Visual C++ > Win32__ template is selected in the left pane, __Win32 Console Application__ in the middle, and that you enter a name and a location at the bottom. Choose the __D\:\\__ drive for the location, and give the project a name (e.g. __cppintro__). See picture:
+* In the dialog that appears, make sure the __Visual C++ > Windows Desktop__ template is selected in the left pane, __Windows Console Application__ in the middle, and that you enter a name and a location at the bottom. Choose the __D\:\\__ drive for the location, and give the project a name (e.g. __cppintro__). See picture:
 
 ![New Project Dialog](dialog.png)
 * Hit OK, and hit OK again on the next dialog to accept the default settings.
@@ -36,7 +36,8 @@ Run it using __Start without debugging__ in the __Debug__ menu, or the keyboard 
 
 Things to remember:
 * You'll need to include the __\<iostream\>__ header (see notes). You can add this either in the main program,
-or in __stdafx.h__
+or in __stdafx.h__. If you add it to the __main.cpp__, make sure to add it _after_ __stdafx.h__, which has to
+be first.
 * You can add __using namespace std;__ at the top so you don't need __std::__ before __cout__, __endl__ etc.
 
 ## 4. Exercise 2: Now get some input
