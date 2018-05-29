@@ -19,7 +19,7 @@ Once you are set up with your pair programming team, open Visual Studio on one m
 Once Visual Studio is open, follow these steps:
 
 * From the __File__ menu, select __File \> New \> Project__
-* In the dialog that appears, make sure the __Visual C++ > Windows Desktop__ template is selected in the left pane, __Windows Console Application__ in the middle, and that you enter a name and a location at the bottom. Choose the __D\:\\__ drive for the location, and give the project a name (e.g. __cppintro__). See picture:
+* In the dialog that appears, make sure the __Visual C++ > Win32__ template is selected in the left pane, __Win32 Console Application__ in the middle, and that you enter a name and a location at the bottom. Choose the __D\:\\__ drive for the location, and give the project a name (e.g. __cppintro__). See picture:
 
 ![New Project Dialog](dialog.png)
 * Hit OK, and hit OK again on the next dialog to accept the default settings.
