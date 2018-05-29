@@ -24,10 +24,14 @@ classroom as a sort of parallel supercomputer (albeit with some communication us
 [Week 2 Notes](week2notes.md) In week 2, we introduce object-oriented progrmming in C++. We also introduce the use of the __SFML__ graphics library so we can move away from text-based applications and animate some sprites.
 
 [Week 2 Practical](week2practical.md) This week's practical session is a step-by-step tutorial in using SFML to implement a simple top-down animated character with walking animation. This could be a starting point for an RPG (role playing game) -- next week we will add some things for the character to do.
+
 <!--
+
+
 [Week 3 Notes](week3notes.md) In week 3, we look at references, STL (the standard template library), and inheritance in C++. 
 
 [Week 3 Practical](week3practical.md) In the practical session, we will develop last week's SFML code into the beginnings of a game by adding some interactions with the world.
 
 -->
+
 [Here](further.md) is a list of resources you can use to take your C++ programming further.
