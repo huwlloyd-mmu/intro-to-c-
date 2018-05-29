@@ -50,6 +50,7 @@ Now to make another program. We want to do this while keeping the first on disk.
 
 This removes the file from the project, but leaves it on disk so you can add it back later on.
 
+
 * Right-click on the __source__ folder in the solution explorer, and select __Add > New Item__
 * The dialog that follows allows you to choose the file type - this should be 'C++ File' by default. Set the file name to (e.g.) "ex2.cpp".
 * You should now have a blank C++ file ready for editing. You will need to add the 'boilerplate' (#include "stdafx.h", the main function etc.).
