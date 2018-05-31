@@ -21,7 +21,7 @@ We'll be using this character sprite sheet from opengameart, by Guarav Munjal ([
 * Click the button to go to the GitHub project.
 * Click on "Clone or Download", and choose "Download Zip Archive".
 * When your zip archive is ready, look inside it, find the "week2start" folder, and copy it onto the __D:__ drive.
-* Find the solution file (week2start.sln), double click it to open in visual studio, build anr run.
+* Find the solution file (week2start.sln), double click it to open in visual studio, build and run. It will ask you whether the project file is trustworthy - click OK to that.
 
 If that all worked, you should have a blank window (title "MyGame"). Hit escape to dismiss it.
 
@@ -37,7 +37,7 @@ We will make a class called __Avatar__ to represent our little RPG chap. Follow 
 
 * Add a header file called __Avatar.h__ and a C++ file called __Avatar.cpp__. Do this by right-clicking on the "Header Files" and "C++ Files" folders in the solution explorer, and choosing "Add new item". The dialog that follows should be familiar from last week.
 
-* Define the skeleton of the __Avatar__ class. We want it to have a pointer to the game, so we can get a pointer to the render window. Here's the header file code -- add this after the "#pragma once".
+* Define the skeleton of the __Avatar__ class. We want it to have a pointer to the game, so we can get a pointer to the render window. Here's the header file code -- add this after the "#pragma once", in __Avatar.h__.
 
 ```c++
 #include "stdafx.h"
@@ -54,7 +54,7 @@ public:
 };
 ```
 
-* Here's the C++ code (for the C++ file)
+* Here's the C++ code (put this in __Avatar.cpp__)
 
 ```c++
 #include "Avatar.h"
@@ -84,19 +84,21 @@ We will now add some functionality to enable the Avatar to enable us to display 
    int posX;
    int posY;
 
-   // in the Avatar constructor (c++ file)
+   // inside the Avatar constructor (in Avatar.cpp)
    posX = parent->GetSFMLWindow()->getSize().x / 2;
    posY = parent->GetSFMLWindow()->getSize().y / 2;
 ```
+#4 Note on code listings: Look at the comments in the code listings to find where to put what. The code snippets contain code that has to be put into multiple places, some in the __.h__ file, some in the __.cpp__ file.
+
 This code gets a pointer to the window, from the game (parent), then uses that pointer to call __getSize()__. This returns an SFML vector object with x and y components representing width and height of the window.
 
 Next we need to load the sprite sheet image into a texture ('texture' is a graphics term for an image that is used to render an object). Add a variable to the __Avatar__ class of type __sf::Texture__, called __spriteSheet__, and then in the constructor, load the image using this code
 
 ```c++
-// in the header file:
+// in the header file (Avatar.h):
    sf::Texture spriteSheet;
 
-// in the constructor
+// in the Avatar constructor (Avatar.cpp):
    spriteSheet.loadFromFile("Assets/universal-lpc-sprite_male_01_walk-3frame.png");
 ```
 
