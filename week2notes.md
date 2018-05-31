@@ -1,6 +1,6 @@
 # Week 2 -- Object Oriented Programming in C++
 
-C++ is an object-oriented language, and like Java and C# uses __classes__ to describe objects. A class is a template for creating an object. An object is an entity which encapsulates data and behaviour. The data is held in variables (often called _fields_) and the behaviour is encapsulated in functions (called _methods_). Creating an object from a class is called _instantiation_, and all objects are _instances_ of a class.
+C++ is an object-oriented language, and like Java and C# uses __classes__ to describe __objects__. A class is a template for creating an object. An object is an entity which encapsulates data and behaviour. The data is held in variables (often called _fields_) and the behaviour is encapsulated in functions (called _methods_). Creating an object from a class is called _instantiation_, and all objects are _instances_ of a class.
 
 ## C++ Classes
 
@@ -51,7 +51,7 @@ There's a lot going on here. Here's some notes on the example.
 * The variables __name__ and __age__ are __private__ variables (can only be accessed by objects of class Person) -- this is because we didn't say 
 otherwise, and private is the default.
 * The methods are all public, because they come after a __public:__ declaration.
-* The first method (Person(string name, int age)) is a __constructor__. This has no return type (not even void). Constructors are called when objects are constructed.
+* The first method (Person(string name, int age)) is a __constructor__. This has no return type (not even void). Constructors are called when objects are constructed (instantiated).
 * We can add as many constructors as we like, with different argument lists.
 * In the cpp file, the methods are defined as being class members using __Person::__ before the name. :: is called the _scope resolution operator_.
 
@@ -81,7 +81,7 @@ int main()
 
 In the example above, the created an instance of __Person__ by calling the constructor, and saving this new instance in a variable of type 'Person'. This is fine, but under the hood there is a lot going on here -- the assignment isn't as simple as it looks and involves termporary objects being created and destroyed, and extra code (copy constructors) being called. There is a more efficient way to construct objects using the __new__ operator.
 
-The new operator is used to call a constructor, and return a __pointer__ to the new object. A pointer is basically an address in memory. Pointers can be a tricky concept, especially when they are used to construct arrays, or manipulate memory directly, but when used to refer to class objects they are reasonably straightforward. Here's the example above, rewritten to use pointers.
+The new operator calls a constructor, and returns a __pointer__ to the new object. A pointer is basically an address in memory. Pointers can be a tricky concept, especially when they are used to construct arrays, or manipulate memory directly, but when used to refer to class objects they are reasonably straightforward. Here's the example above, rewritten to use pointers.
 
 ```c++
 #include "person.h"
@@ -111,7 +111,7 @@ the class). There is another, closely related, language feature -- __references_
 
 ## Destructors
 
-As well as constructors, classes can have __destructors__ -- these are methods that are called when an object is destroyed (using delete, or if a variable of a class type goes out of scope). A destructor is declared using the name of the class with a tilde (~) before it:
+As well as constructors, classes can have __destructors__ -- these are methods that are called when an object is destroyed (using __delete__, or if a variable of a class type goes out of scope). A destructor is declared using the name of the class with a tilde (~) before it:
 
 ```c++
 // destructor example - header file
@@ -120,7 +120,7 @@ class MyClass
     // constructor
     MyClass();
     // destructor
-    ~MyClass()
+    ~MyClass();
 }
 
 // implementation file
@@ -135,7 +135,7 @@ You don't have to provide a destructor -- a default one is created for you, but 
 
 ## Initializer lists
 
-Another piece of syntax we will use is class initilizer lists. This is a way of initializing the class fields in a constructor. There are some advantages to using them over just assigning the variables in the constructor and in any case it's idiomatic to use this syntax, so we will use it when we can. Here's an example, using the person class:
+Another piece of syntax we will use is class initializer lists. This is a way of initializing the class fields in a constructor. There are some advantages to using them over just assigning the variables in the constructor and in any case it's idiomatic nowadays to use this syntax, so we will use it when we can. Here's an example, using the person class:
 
 ```c++
 class Person
