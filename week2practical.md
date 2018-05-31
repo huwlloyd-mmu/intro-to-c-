@@ -88,14 +88,14 @@ We will now add some functionality to enable the Avatar to enable us to display 
    posX = parent->GetSFMLWindow()->getSize().x / 2;
    posY = parent->GetSFMLWindow()->getSize().y / 2;
 ```
-#4 Note on code listings: Look at the comments in the code listings to find where to put what. The code snippets contain code that has to be put into multiple places, some in the __.h__ file, some in the __.cpp__ file.
+#### Note on code listings: Look at the comments in the code listings to find where to put what. The code snippets contain code that has to be put into multiple places, some in the __.h__ file, some in the __.cpp__ file.
 
 This code gets a pointer to the window, from the game (parent), then uses that pointer to call __getSize()__. This returns an SFML vector object with x and y components representing width and height of the window.
 
 Next we need to load the sprite sheet image into a texture ('texture' is a graphics term for an image that is used to render an object). Add a variable to the __Avatar__ class of type __sf::Texture__, called __spriteSheet__, and then in the constructor, load the image using this code
 
 ```c++
-// in the header file (Avatar.h):
+// in the header file (Avatar.h), with the variable declarations:
    sf::Texture spriteSheet;
 
 // in the Avatar constructor (Avatar.cpp):
@@ -105,7 +105,7 @@ Next we need to load the sprite sheet image into a texture ('texture' is a graph
 We need one more step before we can draw the image. SFML draws 2D images using __sprites__. In SFML, a sprite needs two pieces of information about the image - the texture (we have already dealt with that) and a texture rectangle (the rectangular area of the texture that we want to draw). The texture rectangle is described using an __sf::IntRect__ object. The sprite sheet texture has 12 images on it, so we will create twelve __sf::IntRect__ objects, and store them in an array. Add the following code:
 
 ```c++
-// in the header file (inside the class definition):
+// in the header file (inside the class definition, with the variable declarations):
    sf::IntRect textureRects[12];
 
 // in the constructor
@@ -129,7 +129,7 @@ You should be able to work out from here which rectangle is which. They are stor
 Now to draw a sprite at the position of the avatar. We need to add an avatar object to the game class
 
 ```c++
-// at the top of the game.h file:
+// at the top of the game.h file (after the stafx.h include):
 #include "Avatar.h"
 
 // inside the class definition (game.h), add a pointer variable
