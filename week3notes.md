@@ -109,14 +109,14 @@ for ( int i = 0; i < wordList.size(); i++ )
    cout << wordList[i];
 }
 
-// we can use the new 'range-based' for loop in C++ 11
+// we can use the new 'range-for' loop in C++ 11
 for ( string s : wordList )
 {
    cout << s;
 }
 ```
 
-We can also use __iterators__. Working with iterators would need a deeper dive into pointers first, so we won't go there for now. The range-based for
+We can also use __iterators__. Working with iterators would need a deeper dive into pointers first, so we won't go there for now. The range-for
 loop leads to the most readable code. Iterators are necessary if you want to remove items from the list as you are looping over it.
 
 ### STL Maps
